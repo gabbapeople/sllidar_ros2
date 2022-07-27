@@ -147,7 +147,10 @@ u_result SocketAddress::setAddressFromString(const char * address_string,  Socke
     }
     setPort(prevPort);
 
-    return ans<=0?RESULT_INVALID_DATA:RESULT_OK;
+    if(ans==NULL)
+        return RESULT_INVALID_DATA;
+    else
+        return RESULT_OK;
 }
 
 
@@ -167,7 +170,10 @@ u_result SocketAddress::getAddressAsString(char * buffer, size_t buffersize) con
 
         break;
     }
-    return ans<=0?RESULT_OPERATION_FAIL:RESULT_OK;
+    if(ans==NULL)
+        return RESULT_OPERATION_FAIL;
+    else
+        return RESULT_OK;
 }
 
 
